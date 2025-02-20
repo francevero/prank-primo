@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attenzione!</title>
+    <style>
+        body {
+            background: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 40px;
+            animation: glitch 1s infinite alternate;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6); }
+            100% { text-shadow: -2px -2px 5px rgba(0, 255, 0, 0.6); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⚠️ SISTEMA COMPROMESSO ⚠️</h1>
+    <p>Il tuo dispositivo è stato violato. Stiamo accedendo ai tuoi dati...</p>
+    <p>Non spegnere il dispositivo!</p>
+
+    <script>
+        // Simula messaggi casuali
+        function showFakeLogs() {
+            let logs = [
+                "Accesso ai file personali...",
+                "Criptazione della memoria in corso...",
+                "Connessione al server remoto...",
+                "Download dei tuoi dati...",
+                "Installazione software di monitoraggio...",
+                "Attivazione fotocamera..."
+            ];
+            let p = document.createElement("p");
+            p.innerText = logs[Math.floor(Math.random() * logs.length)];
+            document.body.appendChild(p);
+        }
+
+        // Effetto "crash" del browser con redirect infinito
+        function crashBrowser() {
+            setTimeout(() => {
+                window.location.href = window.location.href;
+            }, 3000); // Ricarica la pagina ogni 3 secondi
+        }
+
+        // Suono inquietante in loop
+        function playScarySound() {
+            let audio = new Audio("https://www.fesliyanstudios.com/play-mp3/4383");
+            audio.loop = true;
+            audio.play().catch(error => console.log("L'audio è bloccato dal browser"));
+        }
+
+        // Avvia lo scherzo quando la pagina viene caricata
+        window.onload = () => {
+            setInterval(showFakeLogs, 2000); // Mostra messaggi ogni 2 sec
+            crashBrowser();
+            setTimeout(playScarySound, 5000); // Fa partire il suono dopo 5 sec
+        };
+    </script>
+
+</body>
+</html>
